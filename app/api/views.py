@@ -29,7 +29,7 @@ def login():
 
     # 如果用户名和密码验证通过，则生成token
     token = jwt.encode({
-        'aud': user.email,
+        'user': user.email,
         'iat': datetime.utcnow(),
         'exp': datetime.utcnow() + timedelta(minutes=30)
     }, current_app.config['SECRET_KEY'])
