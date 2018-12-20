@@ -27,7 +27,7 @@ class User(db.Model):
         if not email or not password:
             return None
 
-        user = cls.qurey.filter_by(email=email).first()
+        user = cls.query.filter_by(email=email).first()
         if not user or not check_password_hash(user.password_hash, password):
             return None
 
